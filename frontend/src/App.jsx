@@ -3,8 +3,14 @@ import { Button } from './components/ui/button'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Signup from './pages/Signup'
-import Login from './pages/login'
 import Navbar from './components/navbar'
+import Verify from './pages/verify'
+import EmailVerify from './pages/EmailVerify'
+import Login from './pages/Login'
+
+
+
+
 
 
 
@@ -16,7 +22,11 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Signup' element={<Signup />} />
-        <Route path='/Login' element={<Login />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/Verify' element={<Verify />} />
+        <Route path='/verify/:token' element={<EmailVerify />} />
+
+
 
       </Routes>
 

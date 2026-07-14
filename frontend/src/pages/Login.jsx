@@ -18,6 +18,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, Toaster } from 'sonner';
+import { useDispatch } from 'react-redux';
+import { setUser } from '@/redux/userSlice';
 
 
 const Login = () => {
@@ -28,6 +30,7 @@ const Login = () => {
         email: "",
     })
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -47,8 +50,10 @@ const Login = () => {
             );
 
             if (res.data.success) {
+                navigate("/");
+                dispatch(setUser(res.data.user));
+                localStorage.setItem("accessToken", res.data.accessToken);
                 toast.success(res.data.message);
-                navigate("/verify");
             }
         } catch (error) {
             console.log(error);
@@ -111,7 +116,7 @@ const Login = () => {
                             name='email'
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder="m@example.com"
+                            placeholder="Gul@example.com"
                             required
                         />
 

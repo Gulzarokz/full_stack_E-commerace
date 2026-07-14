@@ -21,7 +21,7 @@ import { toast, Toaster } from 'sonner';
 
 
 
-const signup = () => {
+const Signup = () => {
 
     const [showPassword, setShowPassword] = useState(false)
     const [formData, setFormData] = useState({
@@ -156,4 +156,4 @@ const signup = () => {
     )
 }
 
-export default signup
+export default Signup

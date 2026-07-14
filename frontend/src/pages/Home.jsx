@@ -1,9 +1,14 @@
+import Features from '@/component/Features'
+import Footer from '@/component/Footer'
+import Hero from '@/component/Hero'
 import React from 'react'
 
 const Home = () => {
     return (
         <div>
-            Home
+            <Hero />
+            <Features />
+            <Footer />
         </div>
     )
 }

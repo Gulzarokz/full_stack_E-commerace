@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { IoCartOutline } from "react-icons/io5";
 import { Button } from '@/components/ui/button';
@@ -7,10 +7,12 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { toast, Toaster } from 'sonner';
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
     const user = useSelector((store) => store.user.user)
     const accessToken = localStorage.getItem('accessToken')
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
 
@@ -24,6 +26,12 @@ const Navbar = () => {
             if (res.data.success) {
                 toast.success(res.data.message)
                 dispatch(setUser(null))
+                localStorage.removeItem('accessToken')
+                navigate('/login')
+
+
+
+
             }
 
         } catch (error) {
@@ -31,6 +39,8 @@ const Navbar = () => {
 
         }
     }
+
+
 
     return (
         <header className='bg-pink-100 fix w-full border-b border-pink-200'>
@@ -56,7 +66,10 @@ const Navbar = () => {
 
                     </ul>
                     {
-                        user ? <Button className='bg-pink-500 hover:bg-amber-400 text-white cursor-pointer' onClick={loggoutHandler}>Logout</Button> : <Button className='bg-pink-500 hover:bg-amber-400 text-white cursor-pointer'>Login</Button>
+                        user ? <Button className='bg-pink-500 hover:bg-amber-400 text-white cursor-pointer' onClick={() => {
+                            loggoutHandler,
+                                navigate('/login')
+                        }}>Logout</Button> : <Button className='bg-pink-500 hover:bg-amber-400 text-white cursor-pointer' onClick={() => navigate('/login')}>Login</Button>
                     }
 
                 </nav>

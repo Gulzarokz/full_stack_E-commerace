@@ -6,6 +6,7 @@ import Signup from './pages/Signup'
 import Login from './pages/Login'
 import Verify from './pages/Verify'
 import EmailVerify from './pages/EmailVerify'
+import Profile from './pages/Profile'
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/verify' element={<Verify />} />
         <Route path='/verify/:token' element={<EmailVerify />} />
+        <Route path='/profile' element={<Profile />} />
 
       </Routes>
 

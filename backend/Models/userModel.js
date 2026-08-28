@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
+    firstname: { type: String, required: true },
+    lastname: { type: String, required: true },
     profilePic: { type: String, default: "" },
     profilePicId: { type: String, default: "" },
     email: { type: String, required: true, unique: true },
@@ -17,10 +17,10 @@ const userSchema = new mongoose.Schema({
     isLoggedIn: { type: Boolean, default: false },
     otp: { type: String, default: "" },
     otpExpiry: { type: Date, default: null },
-    Address: { type: String },
-    City: { type: String },
-    ZipCode: { type: String },
-    phoneNumber: { type: String }
+    address: { type: String },
+    city: { type: String },
+    zipCode: { type: String },
+    phoneNo: { type: String }
 
 
 }

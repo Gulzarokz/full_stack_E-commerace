@@ -4,7 +4,7 @@ dotenv.config();
 import connectDB from './Database/db.js';
 import userRoutes from './routes/userRoutes.js';
 import cors from 'cors'
-
+import productRoutes from './routes/productRoutes.js';
 
 const app = express();
 
@@ -22,6 +22,7 @@ app.use(cors({
 
 // routes
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/products", productRoutes);
 
 
 
